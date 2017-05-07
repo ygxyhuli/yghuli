@@ -7,3 +7,7 @@
 /build
 /captures
 .externalNativeBuild
+.idea/modules.xml
+gradle/wrapper/gradle-wrapper.properties
+build.gradle
+/vitamio
