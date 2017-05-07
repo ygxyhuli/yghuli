@@ -1,5 +1,9 @@
 [
     {
+        "merged": "D:\\DevWorkspace\\Android Projects\\yghuli\\vitamio\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ic_launcher.png",
+        "source": "D:\\DevWorkspace\\Android Projects\\yghuli\\vitamio\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ic_launcher.png"
+    },
+    {
         "merged": "F:\\MyProjects\\HuLi\\vitamio\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ic_launcher.png",
         "source": "F:\\MyProjects\\HuLi\\vitamio\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ic_launcher.png"
     }
