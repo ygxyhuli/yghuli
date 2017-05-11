@@ -25,42 +25,51 @@
             <RelativeLayout
                 android:layout_alignParentLeft="true"
                 android:layout_width="160dp"
-                android:layout_height="160dp">
+                android:layout_height="wrap_content">
                 <ImageView
                     android:id="@+id/intermediate_first_answer"
                     android:src="@mipmap/icon_logo"
                     android:layout_margin="10dp"
                     android:layout_width="150dp"
                     android:layout_height="150dp" />
-                <ImageView
+                <Button
                     android:id="@+id/select0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentTop="true"
+                    android:layout_below="@+id/intermediate_first_answer"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:textSize="16sp"
+                    android:text="0"
+                    android:visibility="gone"
+                    android:layout_margin="5dp"
+                    android:layout_centerInParent="true"
                     android:background="@drawable/icon_choice"
-                    android:visibility="gone" />
+
+                    />
                 <!-- 这里是当该图片被选上的时候打上小勾的,因此起初是隐藏不显示的 -->
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_alignParentRight="true"
                 android:layout_width="160dp"
-                android:layout_height="160dp">
+                android:layout_height="wrap_content">
                 <ImageView
                     android:id="@+id/intermediate_first_respondence"
                     android:src="@mipmap/icon_logo"
                     android:layout_margin="10dp"
                     android:layout_width="150dp"
                     android:layout_height="150dp" />
-                <ImageView
+                <Button
                     android:id="@+id/select1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentTop="true"
+                    android:layout_below="@+id/intermediate_first_respondence"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerInParent="true"
+                    android:textSize="16sp"
+                    android:text="1"
+                    android:visibility="gone"
                     android:background="@drawable/icon_choice"
-                    android:visibility="gone" />
+                    android:layout_margin="5dp"
+                     />
 
             </RelativeLayout>
 

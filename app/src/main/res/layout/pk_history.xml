@@ -58,6 +58,7 @@
     </LinearLayout>
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/pk_history_refresh"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -69,4 +70,11 @@
 
         </android.support.v7.widget.RecyclerView>
     </android.support.v4.widget.SwipeRefreshLayout>
+    <TextView
+        android:id="@+id/pk_heroes_hit"
+        android:text="暂时没有数据"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>

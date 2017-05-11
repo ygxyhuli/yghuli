@@ -39,12 +39,12 @@ public class PkHistoryAdapter extends RecyclerView.Adapter<PkHistoryAdapter.View
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         History history = historyList.get(position);
-        holder.mTvName.setText("李思思");
-        holder.mTvReferee1.setText("张三");
-        holder.mTvReferee2.setText("李四");
-        holder.mTvGrade1.setText("100分");
-        holder.mTvGrade2.setText("98分");
-        holder.mTvResult.setText("赢");
+        holder.mTvName.setText(history.getHistory_name());
+        holder.mTvReferee1.setText(history.getHistory_referee1());
+        holder.mTvReferee2.setText(history.getHistory_referee2());
+        holder.mTvGrade1.setText(history.getHistory_grade1());
+        holder.mTvGrade2.setText(history.getHistory_grade2());
+        holder.mTvResult.setText(history.getHistory_result());
     }
 
     @Override
