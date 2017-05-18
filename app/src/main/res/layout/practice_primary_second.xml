@@ -171,14 +171,6 @@
                     android:layout_toRightOf="@+id/practice_ll9"
                     android:layout_margin="5dp"
                     android:layout_height="wrap_content"/>
-                <Button
-                    android:id="@+id/practice_ll11"
-                    android:orientation="vertical"
-                    android:layout_width="80dp"
-                    android:background="@drawable/login_btn_style"
-                    android:layout_toRightOf="@+id/practice_ll10"
-                    android:layout_margin="5dp"
-                    android:layout_height="wrap_content"/>
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

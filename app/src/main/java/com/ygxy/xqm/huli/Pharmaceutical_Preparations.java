@@ -3,6 +3,7 @@ package com.ygxy.xqm.huli;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -17,8 +18,11 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -65,17 +69,58 @@ public class Pharmaceutical_Preparations extends AppCompatActivity implements Ab
     private String header;
     private SharedPreferences sharedPreferences;
     private UserLoginActivity userLoginActivity;
+
+    private int record[]=new int[13];
+
     //    final String addGoldCount = "0";
     public static final String ADD_URL = "http://139.199.220.49:8080/gold/add/";//增加金币
     @OnClick(R.id.prepare_submit)void prepare_submit(){
 //        Toast.makeText(this,"jhh",Toast.LENGTH_SHORT).show();
 //        Log.e("count", String.valueOf(gridView.getCheckedItemCount()));
-        if (gridView.getCheckedItemCount() == mImgIds.length){
-            builder.setMessage("大侠，恭喜你通过无菌技术初级的挑战，获得金币一枚");
-            builder.setPositiveButton("我知道了", new DialogInterface.OnClickListener() {
+
+        for(int i=0;i<13;i++) {
+            if (record[i] == 0) {
+                Intent intent = new Intent();
+                intent.putExtra("from", "Pharmaceutical_Preparations");
+                intent.putExtra("pass", 0);
+                intent.setClass(this, TipsActivity.class);
+                startActivity(intent);
+                return;
+            }
+        }
+        addGold("1");
+        Intent intent=new Intent();
+        intent.putExtra("from","Pharmaceutical_Preparations");
+        intent.putExtra("pass",1);
+        intent.setClass(this, TipsActivity.class);
+        startActivity(intent);
+        ((Button)findViewById(R.id.prepare_submit)).setVisibility(View.INVISIBLE);
+
+
+        /*if (gridView.getCheckedItemCount() == mImgIds.length){
+
+            addGold("1");
+            Intent intent=new Intent();
+            intent.putExtra("from","Pharmaceutical_Preparations");
+            intent.putExtra("pass",1);
+            intent.setClass(this, TipsActivity.class);
+            startActivity(intent);
+
+            builder.setMessage("大侠，恭喜你通过无菌技术初级的挑战，获得金币一枚,是否直接进入中级场？");
+            builder.setPositiveButton("是的", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                     addGold("1");
+                    dialog.dismiss();
+                    Intent intent=new Intent();
+                    intent.setClass(Pharmaceutical_Preparations.this, IntermediateActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            });
+            builder.setNegativeButton("暂不", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
                     dialog.dismiss();
                     finish();
                 }
@@ -83,8 +128,17 @@ public class Pharmaceutical_Preparations extends AppCompatActivity implements Ab
             builder.setCancelable(false);
             dialog = builder.create();
             dialog.show();
+
         }else {
-            builder.setMessage("大侠，你没有通过本次的挑战，希望你再接再厉");
+
+            /*for (int i = 0; i < mGridView.getCount(); i++) {
+                mGridView.setItemChecked(i, false);
+                mSelectMap.clear();
+            }
+            dialog.dismiss();*/
+
+
+            /*builder.setMessage("大侠，你没有通过本次的挑战，希望你再接再厉");
             builder.setPositiveButton("我知道了", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
@@ -98,7 +152,7 @@ public class Pharmaceutical_Preparations extends AppCompatActivity implements Ab
             builder.setCancelable(false);
             dialog = builder.create();
             dialog.show();
-        }
+        }*/
     }
 //    @OnClick(R.id.practice_primary_next)void practice_primary_next(){
 ////        Intent intent = new Intent(Pharmaceutical_Preparations.this,IntermediateActivity.class);
@@ -122,6 +176,24 @@ public class Pharmaceutical_Preparations extends AppCompatActivity implements Ab
         mGridAdapter = new GridAdapter(this);
         mGridView.setAdapter(mGridAdapter);
         mGridView.setMultiChoiceModeListener(this);
+
+        for(int i=0;i<13;i++){
+            record[i]=0;
+        }
+
+        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(record[position]==0){
+                    view.setAlpha(0.5f);
+                    record[position]=1;
+                }
+                else {
+                    view.setAlpha(1);
+                    record[position]=0;
+                }
+            }
+        });
 
     }
 

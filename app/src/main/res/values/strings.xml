@@ -12,7 +12,7 @@
     <string name="hit_identifying_code">请输入验证码</string>
     <string name="btn_identifying_code">获取验证码</string>
     <string name="btn_registered">注册</string>
-    
+
     //思维导图界面
     <string name="btn_mind_next">下一步</string>
     <string name="btn_mind_back">上一步</string>

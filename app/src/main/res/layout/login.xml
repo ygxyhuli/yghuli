@@ -27,6 +27,7 @@
             android:maxLength="10"
             android:inputType="phone"
             android:hint="@string/hit_account"
+            android:textSize="14sp"
             android:padding="10dp" />
 
         <com.ygxy.xqm.huli.myview.DIYEditTextPWD
@@ -39,6 +40,7 @@
             android:layout_marginTop="20dp"
             android:background="@null"
             android:drawablePadding="5dp"
+            android:textSize="14sp"
             android:hint="@string/hit_pwd"
             android:padding="10dp"/>
 

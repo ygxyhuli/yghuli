@@ -18,7 +18,10 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ygxy.xqm.huli.IntermediateActivity;
+import com.ygxy.xqm.huli.Pharmaceutical_Preparations;
 import com.ygxy.xqm.huli.R;
+import com.ygxy.xqm.huli.TipsActivity;
 import com.ygxy.xqm.huli.UserLoginActivity;
 import com.ygxy.xqm.huli.WujunAssessActivity;
 import com.ygxy.xqm.huli.util.OkHttpPostUtil;
@@ -385,6 +388,7 @@ public class PracticePrimaryRangeFragment extends BackHandledFragment {
     }
     @OnClick(R.id.practice_primary_range_out) void practice_primary_range_out(){
         startRange();
+        ((Button)getActivity().findViewById(R.id.practice_primary_range_out)).setVisibility(View.INVISIBLE);
     }
     @Nullable
     @Override
@@ -454,7 +458,14 @@ public class PracticePrimaryRangeFragment extends BackHandledFragment {
                 +mBtn5.getText()+mBtn6.getText()+mBtn7.getText()+mBtn8.getText()+mBtn9.getText();
 //        Log.e("answer",answer);
         if (answer.equals(rangeAnswer)){
-            mllRight.setVisibility(View.VISIBLE);
+
+            Intent intent=new Intent();
+            intent.putExtra("from","PracticePrimaryRangeFragment");
+            intent.putExtra("pass",1);
+            intent.setClass(getActivity(), TipsActivity.class);
+            startActivity(intent);
+
+            /*mllRight.setVisibility(View.VISIBLE);
             mScrollView.setVisibility(View.GONE);
             builder.setMessage("少侠恭喜你一次通过初级训练场排序的考验");
             builder.setCancelable(false);
@@ -466,9 +477,10 @@ public class PracticePrimaryRangeFragment extends BackHandledFragment {
                 }
             });
             dialog = builder.create();
-            dialog.show();
+            dialog.show();*/
+
         }else {
-            builder.setMessage("少侠，你没有通过本次的挑战，希望你再接再厉");
+            /*builder.setMessage("少侠，你没有通过本次的挑战，希望你再接再厉");
             builder.setCancelable(false);
             mBtn1.setText("");
             mBtn2.setText("");
@@ -486,7 +498,13 @@ public class PracticePrimaryRangeFragment extends BackHandledFragment {
                 }
             });
             dialog = builder.create();
-            dialog.show();
+            dialog.show();*/
+
+            Intent intent=new Intent();
+            intent.putExtra("from","PracticePrimaryRangeFragment");
+            intent.putExtra("pass",0);
+            intent.setClass(getActivity(), TipsActivity.class);
+            startActivity(intent);
         }
         return null;
     }

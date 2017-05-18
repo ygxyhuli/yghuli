@@ -80,13 +80,20 @@ public class RecordButton extends Button {
 
 		switch (action) {
 		case MotionEvent.ACTION_DOWN:
-			initDialogAndStartRecord();
+			if(!getText().toString().equals("点击停止录音")){
+				initDialogAndStartRecord();
+				setText("点击停止录音");
+			}
+			else {
+				setText("点击开始录音");
+				finishRecord();
+			}
 			break;
 		case MotionEvent.ACTION_UP:
-			finishRecord();
+			//finishRecord();
 			break;
 		case MotionEvent.ACTION_CANCEL:// 当手指移动到view外面，会cancel
-			cancelRecord();
+			//cancelRecord();
 			break;
 		}
 
@@ -108,7 +115,7 @@ public class RecordButton extends Button {
 		lp.gravity = Gravity.CENTER;
 
 		startRecording();
-		recordIndicator.show();
+		//recordIndicator.show();
 	}
 
 	private void finishRecord() {
@@ -152,7 +159,6 @@ public class RecordButton extends Button {
 		recorder.start();
 		thread = new ObtainDecibelThread();
 		thread.start();
-
 	}
 
 	private void stopRecording() {
