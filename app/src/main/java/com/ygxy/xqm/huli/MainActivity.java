@@ -1,5 +1,6 @@
 package com.ygxy.xqm.huli;
 
+import android.app.ActivityManager;
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -151,6 +152,11 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     }
 
     @Override
+    protected void onNewIntent(Intent intent) { // TODO Auto-generated method stub
+        super.onNewIntent(intent);//退出
+    }
+
+    @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.TabPractice:
@@ -193,6 +199,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             else
             {
                 // 退出。为了确保不出现问题，两种退出都写上
+                ActivityManager manager = (ActivityManager)getSystemService(ACTIVITY_SERVICE); //获取应用程序管理器
+                manager.killBackgroundProcesses(getPackageName()); //强制结束当前应用程序
                 finish();
                 System.exit(0);
                 android.os.Process.killProcess(android.os.Process.myPid());

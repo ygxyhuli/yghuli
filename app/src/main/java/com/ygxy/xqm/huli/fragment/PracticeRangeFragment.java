@@ -49,22 +49,22 @@ public class PracticeRangeFragment extends Fragment{
         Intent intent = new Intent(getActivity(), PracticeItemActivity.class);
         startActivity(intent);
     }
-    @OnClick(R.id.ll_practice_wujun_zhong)void ll_practice_wujun_zhong(){
+    /*@OnClick(R.id.ll_practice_wujun_zhong)void ll_practice_wujun_zhong(){
         Intent intent = new Intent(getActivity(), IntermediateActivity.class);
         startActivity(intent);
     }
     @OnClick(R.id.ll_practice_wujun_gao)void ll_practice_wujun_gao(){
         Intent intent = new Intent(getActivity(), AdvancedActivity.class);
         startActivity(intent);
-    }
+    }*/
     @OnClick(R.id.ll_practice_daoniao_chu)void ll_practice_daoniao_chu(){
         Intent intent = new Intent(getActivity(), DanNiaoPrimaryActivity.class);
         startActivity(intent);
     }
-    @OnClick(R.id.ll_practice_daoniao_zhong)void ll_practice_daoniao_zhong(){
+    /*@OnClick(R.id.ll_practice_daoniao_zhong)void ll_practice_daoniao_zhong(){
         Intent intent = new Intent(getActivity(), DaoniaoIntermediateActivity.class);
         startActivity(intent);
-    }
+    }*/
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

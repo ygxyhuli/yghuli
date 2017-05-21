@@ -70,7 +70,7 @@ public class Pharmaceutical_Preparations extends AppCompatActivity implements Ab
     private SharedPreferences sharedPreferences;
     private UserLoginActivity userLoginActivity;
 
-    private int record[]=new int[13];
+    private int record[]=new int[13];       //记录选择
 
     //    final String addGoldCount = "0";
     public static final String ADD_URL = "http://139.199.220.49:8080/gold/add/";//增加金币
@@ -285,6 +285,15 @@ public class Pharmaceutical_Preparations extends AppCompatActivity implements Ab
 
     private String formatString(int count) {
         return String.format(getString(R.string.selection), count);
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        Intent intent=new Intent();
+        intent.setClass(this,TipsActivity.class);
+        intent.putExtra("from","back");
+        startActivity(intent);
     }
 
     private class GridAdapter extends BaseAdapter {

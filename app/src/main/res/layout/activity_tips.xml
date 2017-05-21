@@ -15,13 +15,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="11dp"
-            android:layout_marginEnd="44dp"
-            android:layout_marginRight="44dp"
+            android:layout_marginEnd="13dp"
+            android:layout_marginRight="13dp"
             android:text="下一步"
+            android:id="@+id/btnNext"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:id="@+id/btnNext" />
+            android:layout_alignParentEnd="true" />
 
         <TextView
             android:id="@+id/tvShow"
@@ -36,6 +36,16 @@
             android:text="TextView"
             android:textColor="@color/mediacontroller_bg"
             android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/btnNext"
+            android:layout_marginEnd="13dp"
+            android:layout_marginRight="13dp"
+            android:layout_toLeftOf="@+id/btnNext"
+            android:text="取消" />
     </RelativeLayout>
 
 

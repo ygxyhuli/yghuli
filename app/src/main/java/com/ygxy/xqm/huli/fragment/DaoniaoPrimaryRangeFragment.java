@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.ygxy.xqm.huli.Daoniao_Preparations;
 import com.ygxy.xqm.huli.R;
+import com.ygxy.xqm.huli.TipsActivity;
 import com.ygxy.xqm.huli.UserLoginActivity;
 import com.ygxy.xqm.huli.util.OkHttpPostUtil;
 
@@ -391,6 +392,10 @@ public class DaoniaoPrimaryRangeFragment extends BackHandledFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.practice_primary_range,container,false);
         ButterKnife.bind(this,view);
+        Intent intent=new Intent();
+        intent.putExtra("from","DaoniaoTips");
+        intent.setClass(getActivity(),TipsActivity.class);
+        startActivity(intent);
         return view;
     }
 
@@ -463,7 +468,7 @@ public class DaoniaoPrimaryRangeFragment extends BackHandledFragment {
                 +mBtn5.getText()+mBtn6.getText()+mBtn7.getText()+mBtn8.getText()+mBtn9.getText();
         Log.e("answer",answer);
         if (answer.equals(rangeAnswer)){
-            mllRight.setVisibility(View.VISIBLE);
+            /*mllRight.setVisibility(View.VISIBLE);
             mScrollView.setVisibility(View.GONE);
             builder.setMessage("少侠恭喜你一次通过导尿技术初级训练场排序的考验");
             builder.setCancelable(false);
@@ -475,9 +480,16 @@ public class DaoniaoPrimaryRangeFragment extends BackHandledFragment {
                 }
             });
             dialog = builder.create();
-            dialog.show();
+            dialog.show();*/
+
+            Intent intent=new Intent();
+            intent.putExtra("from","DaoniaoPrimaryRangeFragment");
+            intent.putExtra("pass",1);
+            intent.setClass(getActivity(), TipsActivity.class);
+            startActivity(intent);
+
         }else {
-            builder.setMessage("少侠，你没有通过本次的挑战，希望你再接再厉");
+            /*builder.setMessage("少侠，你没有通过本次的挑战，希望你再接再厉");
             builder.setCancelable(false);
             mBtn1.setText("");
             mBtn2.setText("");
@@ -495,7 +507,14 @@ public class DaoniaoPrimaryRangeFragment extends BackHandledFragment {
                 }
             });
             dialog = builder.create();
-            dialog.show();
+            dialog.show();*/
+
+            Intent intent=new Intent();
+            intent.putExtra("from","DaoniaoPrimaryRangeFragment");
+            intent.putExtra("pass",0);
+            intent.setClass(getActivity(), TipsActivity.class);
+            startActivity(intent);
+
         }
         return null;
     }

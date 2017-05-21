@@ -395,6 +395,10 @@ public class PracticePrimaryRangeFragment extends BackHandledFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.practice_primary_range,container,false);
         ButterKnife.bind(this,view);
+        Intent intent=new Intent();
+        intent.putExtra("from","WujunTips");
+        intent.setClass(getActivity(),TipsActivity.class);
+        startActivity(intent);
         return view;
     }
 
@@ -516,7 +520,7 @@ public class PracticePrimaryRangeFragment extends BackHandledFragment {
     }
 
     @Override
-    public boolean onBackPressed() {
+    public boolean onBackPressed(){
         return false;
     }
 }

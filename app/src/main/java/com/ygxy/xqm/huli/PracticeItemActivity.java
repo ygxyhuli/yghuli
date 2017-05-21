@@ -1,5 +1,6 @@
 package com.ygxy.xqm.huli;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -80,12 +81,16 @@ public class PracticeItemActivity extends FragmentActivity implements BackHandle
 
     @Override
     public void onBackPressed() {
-        if(mBackHandledFragment == null || !mBackHandledFragment.onBackPressed()){
+        /*if(mBackHandledFragment == null || !mBackHandledFragment.onBackPressed()){
             if(getSupportFragmentManager().getBackStackEntryCount() == 0){
                 super.onBackPressed();
             }else{
                 getSupportFragmentManager().popBackStack();
             }
-        }
+        }*/
+        Intent intent=new Intent();
+        intent.setClass(this,TipsActivity.class);
+        intent.putExtra("from","back");
+        startActivity(intent);
     }
 }

@@ -1,5 +1,6 @@
 package com.ygxy.xqm.huli;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -28,5 +29,14 @@ public class IntermediateActivity extends AppCompatActivity{
         }
         setContentView(R.layout.intermediate);
         ButterKnife.bind(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        Intent intent=new Intent();
+        intent.setClass(this,TipsActivity.class);
+        intent.putExtra("from","back");
+        startActivity(intent);
     }
 }

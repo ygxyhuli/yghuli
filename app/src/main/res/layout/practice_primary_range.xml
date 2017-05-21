@@ -232,18 +232,6 @@
                     android:layout_toLeftOf="@+id/practice_primary_range_back"
                     android:layout_alignParentBottom="true" />
 
-                <TextView
-                    android:id="@+id/practice_primary_range_hit"
-                    android:text="@string/tv_range_first_hit"
-                    android:layout_toLeftOf="@+id/practice_primary_range_out"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:textSize="16sp"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentBottom="true"/>
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>
