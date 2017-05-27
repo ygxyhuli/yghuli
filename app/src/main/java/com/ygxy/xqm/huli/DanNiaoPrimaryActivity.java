@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -31,7 +32,7 @@ public class DanNiaoPrimaryActivity extends AppCompatActivity implements BackHan
     RelativeLayout practice_rl;
     private final FragmentManager fragmentManager = getSupportFragmentManager();
     private FragmentTransaction transaction;
-    private DaoniaoItemFragment itemFragment;
+    private Fragment itemFragment;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,17 +45,18 @@ public class DanNiaoPrimaryActivity extends AppCompatActivity implements BackHan
         setContentView(R.layout.practice_item_fragment);
         ButterKnife.bind(this);
         practice_rl.setVisibility(View.VISIBLE);
-        itemFragment = new DaoniaoItemFragment();
+        if(getIntent().getIntExtra("toHigherPractice",0)==0)itemFragment = new DaoniaoItemFragment();
+        else itemFragment=new DaoniaoPrimaryRangeFragment();
         addItemFragment(itemFragment);
     }
 
-    public void addItemFragment(DaoniaoItemFragment itemFragment) {
+    public void addItemFragment(Fragment itemFragment) {
         transaction = fragmentManager.beginTransaction();
         transaction.add(R.id.practice_rl,itemFragment,null);
         transaction.commit();
     }
 
-    public void replaceItemFragment(DaoniaoPrimaryRangeFragment rangeFragment){
+    public void replaceItemFragment(Fragment rangeFragment){
         if (rangeFragment == null){
             rangeFragment = new DaoniaoPrimaryRangeFragment();
         }

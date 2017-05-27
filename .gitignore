@@ -10,4 +10,5 @@
 .idea/modules.xml
 gradle/wrapper/gradle-wrapper.properties
 build.gradle
-/vitamio
+vitamio
+vitamio/build

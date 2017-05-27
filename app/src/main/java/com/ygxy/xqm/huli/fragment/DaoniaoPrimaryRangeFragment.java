@@ -392,10 +392,6 @@ public class DaoniaoPrimaryRangeFragment extends BackHandledFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.practice_primary_range,container,false);
         ButterKnife.bind(this,view);
-        Intent intent=new Intent();
-        intent.putExtra("from","DaoniaoTips");
-        intent.setClass(getActivity(),TipsActivity.class);
-        startActivity(intent);
         return view;
     }
 
@@ -443,15 +439,7 @@ public class DaoniaoPrimaryRangeFragment extends BackHandledFragment {
     private void initData() {
         mllRight.setVisibility(View.GONE);
         mScrollView.setVisibility(View.VISIBLE);
-        mBtn1.setText("");
-        mBtn2.setText("");
-        mBtn3.setText("");
-        mBtn4.setText("");
-        mBtn5.setText("");
-        mBtn6.setText("");
-        mBtn7.setText("");
-        mBtn8.setText("");
-        mBtn9.setText("");
+
         mTv1.setText("评估");
         mTv2.setText("用物准备");
         mTv3.setText("摆体位");
@@ -461,6 +449,39 @@ public class DaoniaoPrimaryRangeFragment extends BackHandledFragment {
         mTv7.setText("固定");
         mTv8.setText("整理并记录");
         mTv9.setText("");
+
+        int i=getActivity().getIntent().getIntExtra("toHigherPractice",0);
+
+        if(i>=1){
+            mBtn1.setText("评估");
+            mBtn2.setText("用物准备");
+            mBtn3.setText("摆体位");
+            mBtn4.setText("初步消毒");
+            mBtn5.setText("开包铺巾");
+            mBtn6.setText("再次消毒并插管");
+            mBtn7.setText("固定");
+            mBtn8.setText("整理并记录");
+            Intent intent=new Intent();
+            intent.putExtra("from","DaoniaoPrimaryRangeFragment");
+            intent.putExtra("toHigherPractice",i);      /**回到排序页面，下一个中级场练习部分**/
+            intent.setClass(getActivity(),TipsActivity.class);
+            startActivity(intent);
+        }
+        else {
+            mBtn1.setText("");
+            mBtn2.setText("");
+            mBtn3.setText("");
+            mBtn4.setText("");
+            mBtn5.setText("");
+            mBtn6.setText("");
+            mBtn7.setText("");
+            mBtn8.setText("");
+            mBtn9.setText("");
+            Intent intent=new Intent();
+            intent.putExtra("from","DaoniaoTips");
+            intent.setClass(getActivity(),TipsActivity.class);
+            startActivity(intent);
+        }
     }
 
     private Boolean startRange() {

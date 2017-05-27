@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.ygxy.xqm.huli.DanNiaoPrimaryActivity;
 import com.ygxy.xqm.huli.Daoniao_Preparations;
 import com.ygxy.xqm.huli.R;
 import com.ygxy.xqm.huli.myview.RecordButton;
@@ -49,7 +50,8 @@ public class DaoniaoAssessFragment extends Fragment{
         mBtnFinish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), Daoniao_Preparations.class);
+                Intent intent = new Intent(getActivity(), DanNiaoPrimaryActivity.class);
+                intent.putExtra("toHigherPractice",2);     /**回到排序页面，下一个中级场练习部分**/
                 startActivity(intent);
                 dialog.dismiss();
                 getActivity().finish();

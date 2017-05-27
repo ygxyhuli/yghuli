@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -31,7 +32,7 @@ public class PracticeItemActivity extends FragmentActivity implements BackHandle
     RelativeLayout practice_rl;
     private final FragmentManager fragmentManager = getSupportFragmentManager();
     private FragmentTransaction transaction;
-    private PracticeItemFragment itemFragment;
+    private Fragment itemFragment;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,11 +45,13 @@ public class PracticeItemActivity extends FragmentActivity implements BackHandle
         setContentView(R.layout.practice_item_fragment);
         ButterKnife.bind(this);
         practice_rl.setVisibility(View.VISIBLE);
-        itemFragment = new PracticeItemFragment();
+        if(getIntent().getIntExtra("toHigherPractice",0)==0)itemFragment = new PracticeItemFragment();
+        else itemFragment=new PracticePrimaryRangeFragment();
         addItemFragment(itemFragment);
+
     }
 
-    public void addItemFragment(PracticeItemFragment itemFragment) {
+    public void addItemFragment(Fragment itemFragment) {
         transaction = fragmentManager.beginTransaction();
         transaction.add(R.id.practice_rl,itemFragment,null);
         transaction.commit();

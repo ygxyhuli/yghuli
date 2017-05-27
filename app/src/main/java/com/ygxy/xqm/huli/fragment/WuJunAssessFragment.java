@@ -17,7 +17,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ygxy.xqm.huli.Pharmaceutical_Preparations;
+import com.ygxy.xqm.huli.PracticeItemActivity;
 import com.ygxy.xqm.huli.R;
+import com.ygxy.xqm.huli.TipsActivity;
 import com.ygxy.xqm.huli.myview.RecordButton;
 
 import butterknife.BindView;
@@ -49,7 +51,8 @@ public class WuJunAssessFragment extends Fragment{
         mBtnFinish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), Pharmaceutical_Preparations.class);
+                Intent intent = new Intent(getActivity(), PracticeItemActivity.class);
+                intent.putExtra("toHigherPractice",2);     /**回到排序页面，下一个中级场练习部分**/
                 startActivity(intent);
                 dialog.dismiss();
                 getActivity().finish();

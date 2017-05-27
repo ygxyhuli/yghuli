@@ -395,10 +395,7 @@ public class PracticePrimaryRangeFragment extends BackHandledFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.practice_primary_range,container,false);
         ButterKnife.bind(this,view);
-        Intent intent=new Intent();
-        intent.putExtra("from","WujunTips");
-        intent.setClass(getActivity(),TipsActivity.class);
-        startActivity(intent);
+
         return view;
     }
 
@@ -446,15 +443,38 @@ public class PracticePrimaryRangeFragment extends BackHandledFragment {
     private void initData() {
         mllRight.setVisibility(View.GONE);
         mScrollView.setVisibility(View.VISIBLE);
-        mBtn1.setText("");
-        mBtn2.setText("");
-        mBtn3.setText("");
-        mBtn4.setText("");
-        mBtn5.setText("");
-        mBtn6.setText("");
-        mBtn7.setText("");
-        mBtn8.setText("");
-        mBtn9.setText("");
+        int i=getActivity().getIntent().getIntExtra("toHigherPractice",0);
+        if(i>=1){
+            mBtn1.setText("评估");
+            mBtn2.setText("用物准备");
+            mBtn3.setText("操作前准备");
+            mBtn4.setText("铺治疗巾");
+            mBtn5.setText("备无菌器械和无菌敷料");
+            mBtn6.setText("备无菌溶液");
+            mBtn7.setText("备操作部位和穿脱无菌手套");
+            mBtn8.setText("整理并记录");
+            Intent intent=new Intent();
+            intent.putExtra("from","PracticePrimaryRangeFragment");
+            intent.putExtra("toHigherPractice",i);      /**回到排序页面，下一个中级场练习部分**/
+            intent.setClass(getActivity(),TipsActivity.class);
+            startActivity(intent);
+        }
+        else {
+            mBtn1.setText("");
+            mBtn2.setText("");
+            mBtn3.setText("");
+            mBtn4.setText("");
+            mBtn5.setText("");
+            mBtn6.setText("");
+            mBtn7.setText("");
+            mBtn8.setText("");
+            mBtn9.setText("");
+            Intent intent=new Intent();
+            intent.putExtra("from","WujunTips");
+            intent.setClass(getActivity(),TipsActivity.class);
+            startActivity(intent);
+        }
+
     }
 
     private Boolean startRange() {

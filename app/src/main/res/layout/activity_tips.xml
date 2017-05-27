@@ -11,6 +11,90 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/img6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/img3"
+            android:layout_alignStart="@+id/img3"
+            android:layout_alignTop="@+id/img7"
+            android:src="@drawable/finger"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/img3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/img0"
+            android:layout_alignStart="@+id/img0"
+            android:layout_alignTop="@+id/img4"
+            android:src="@drawable/finger"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/img0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/img1"
+            android:layout_marginEnd="45dp"
+            android:layout_marginRight="45dp"
+            android:layout_toLeftOf="@+id/img1"
+            android:layout_toStartOf="@+id/img1"
+            android:src="@drawable/finger"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/img2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/img1"
+            android:layout_toEndOf="@+id/img4"
+            android:layout_toRightOf="@+id/img4"
+            android:src="@drawable/finger"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/img8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/img7"
+            android:layout_toEndOf="@+id/img4"
+            android:layout_toRightOf="@+id/img4"
+            android:src="@drawable/finger"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/img5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/img4"
+            android:layout_toEndOf="@+id/img4"
+            android:layout_toRightOf="@+id/img4"
+            android:src="@drawable/finger"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/img7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/img4"
+            android:layout_alignStart="@+id/img4"
+            android:layout_below="@+id/img4"
+            android:layout_marginTop="46dp"
+            android:src="@drawable/finger"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/img1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/img4"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/img4"
+            android:layout_marginTop="37dp"
+            android:src="@drawable/finger"
+            android:visibility="invisible" />
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,6 +130,19 @@
             android:layout_marginRight="13dp"
             android:layout_toLeftOf="@+id/btnNext"
             android:text="取消" />
+
+        <ImageView
+            android:id="@+id/img4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img1"
+            android:layout_marginEnd="44dp"
+            android:layout_marginRight="44dp"
+            android:layout_marginTop="42dp"
+            android:layout_toLeftOf="@+id/btnCancel"
+            android:layout_toStartOf="@+id/btnCancel"
+            android:src="@drawable/finger"
+            android:visibility="invisible" />
     </RelativeLayout>
 
 

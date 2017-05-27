@@ -2,12 +2,15 @@ package com.ygxy.xqm.huli;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.ygxy.xqm.huli.fragment.DaoniaoPrimaryRangeFragment;
+
+import java.util.LinkedList;
 
 public class TipsActivity extends Activity {
 
@@ -16,11 +19,21 @@ public class TipsActivity extends Activity {
     Button btnNext;
     Button btnCancel;
     boolean toNewActivity=true;
+    LinkedList<ImageView> imgList=new LinkedList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tips);
+
+        imgList.add((ImageView)findViewById(R.id.img0));
+        imgList.add((ImageView)findViewById(R.id.img1));
+        imgList.add((ImageView)findViewById(R.id.img2));
+        imgList.add((ImageView)findViewById(R.id.img3));
+        imgList.add((ImageView)findViewById(R.id.img4));
+        imgList.add((ImageView)findViewById(R.id.img5));
+        imgList.add((ImageView)findViewById(R.id.img6));
+        imgList.add((ImageView)findViewById(R.id.img7));
 
         tvShow=(TextView)findViewById(R.id.tvShow);
         btnNext=(Button)findViewById(R.id.btnNext);
@@ -49,8 +62,29 @@ public class TipsActivity extends Activity {
 
         if(lastActivity.equals("PracticePrimaryRangeFragment")){
             if(getIntent().getIntExtra("pass",0)==1){
-                intent.setClass(TipsActivity.this,WujunAssessActivity.class);
-                tvShow.setText("少侠，恭喜你一次通过初级训练场排序的考验,点击下一步进入进行评估");
+                intent.setClass(TipsActivity.this,PracticeItemActivity.class);
+                intent.putExtra("toHigherPractice",1);  /**返回到排序页面**/
+                tvShow.setText("大侠，恭喜你通过无菌技术初级的挑战，获得金币一枚,是否直接进入高级场？");
+                btnNext.setText("好的");
+                btnCancel.setText("暂不");
+            }
+            else if(getIntent().getIntExtra("toHigherPractice",0)>=1){
+                switch(getIntent().getIntExtra("toHigherPractice",0)){
+                    case 1:intent.setClass(TipsActivity.this,WujunAssessActivity.class);break;
+                    case 2:intent.setClass(this,Pharmaceutical_Preparations.class);break;
+                    default:break;
+                }
+                intent.putExtra("toHigherPractice",getIntent().getIntExtra("toHigherPractice",0)+1);
+                tvShow.setText("大侠，请按提示点击");
+                imgList.get(getIntent().getIntExtra("toHigherPractice",0)-1).setVisibility(View.VISIBLE);
+                imgList.get(getIntent().getIntExtra("toHigherPractice",0)-1).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(intent);
+                    }
+                });
+                btnNext.setVisibility(View.INVISIBLE);
+                btnCancel.setVisibility(View.INVISIBLE);
             }
             else {
                 intent.setClass(TipsActivity.this,PracticeItemActivity.class);
@@ -71,8 +105,29 @@ public class TipsActivity extends Activity {
 
         else if(lastActivity.equals("DaoniaoPrimaryRangeFragment")){
             if(getIntent().getIntExtra("pass",0)==1){
-                intent.setClass(TipsActivity.this,DaoniaoAssessActivity.class);
-                tvShow.setText("少侠，恭喜你一次通过导尿技术初级训练场排序的考验,点击下一步进入进行评估");
+                intent.setClass(TipsActivity.this,DanNiaoPrimaryActivity.class);
+                intent.putExtra("toHigherPractice",1);  /**返回到排序页面**/
+                tvShow.setText("大侠，恭喜你通过无菌技术初级的挑战，获得金币一枚,是否直接进入高级场？");
+                btnNext.setText("好的");
+                btnCancel.setText("暂不");
+            }
+            else if(getIntent().getIntExtra("toHigherPractice",0)>=1){
+                switch(getIntent().getIntExtra("toHigherPractice",0)){
+                    case 1:intent.setClass(TipsActivity.this,DaoniaoAssessActivity.class);break;
+                    case 2:intent.setClass(this,Daoniao_Preparations.class);break;
+                    default:break;
+                }
+                intent.putExtra("toHigherPractice",getIntent().getIntExtra("toHigherPractice",0)+1);
+                tvShow.setText("大侠，请按提示点击");
+                imgList.get(getIntent().getIntExtra("toHigherPractice",0)-1).setVisibility(View.VISIBLE);
+                imgList.get(getIntent().getIntExtra("toHigherPractice",0)-1).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(intent);
+                    }
+                });
+                btnNext.setVisibility(View.INVISIBLE);
+                btnCancel.setVisibility(View.INVISIBLE);
             }
             else {
                 intent.setClass(TipsActivity.this,DanNiaoPrimaryActivity.class);
@@ -110,7 +165,6 @@ public class TipsActivity extends Activity {
             btnNext.setText("是的");
             btnCancel.setText("取消");
         }
-
 
     }
 }
