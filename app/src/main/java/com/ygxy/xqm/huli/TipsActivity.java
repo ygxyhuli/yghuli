@@ -87,18 +87,21 @@ public class TipsActivity extends Activity {
                 btnCancel.setVisibility(View.INVISIBLE);
             }
             else {
-                intent.setClass(TipsActivity.this,PracticeItemActivity.class);
+                intent.setClass(TipsActivity.this,MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 tvShow.setText("少侠，你没有通过本次的挑战，希望你再接再厉,点击下一步重新开始");
             }
         }
 
         else if(lastActivity.equals("Pharmaceutical_Preparations")){
             if(getIntent().getIntExtra("pass",0)==1){
-                intent.setClass(TipsActivity.this,IntermediateActivity.class);
-                tvShow.setText("大侠，恭喜你通过无菌技术初级的挑战，获得金币一枚,点击下一步进入进入中级场");
+                intent.setClass(TipsActivity.this,PracticeItemActivity.class);
+                intent.putExtra("toHigherPractice",1);  /**返回到排序页面**/
+                tvShow.setText("大侠，点击下一步继续");
             }
             else {
-                intent.setClass(TipsActivity.this,Pharmaceutical_Preparations.class);
+                intent.setClass(TipsActivity.this,MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 tvShow.setText("大侠，你没有通过本次的挑战，希望你再接再厉,点击下一步重新开始");
             }
         }
@@ -130,7 +133,8 @@ public class TipsActivity extends Activity {
                 btnCancel.setVisibility(View.INVISIBLE);
             }
             else {
-                intent.setClass(TipsActivity.this,DanNiaoPrimaryActivity.class);
+                intent.setClass(TipsActivity.this,MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 tvShow.setText("少侠，你没有通过本次的挑战，希望你再接再厉,点击下一步重新开始");
             }
         }
@@ -141,7 +145,8 @@ public class TipsActivity extends Activity {
                 tvShow.setText("大侠，恭喜你通过无菌技术初级的挑战，获得金币一枚,点击下一步进入进入中级场");
             }
             else {
-                intent.setClass(TipsActivity.this,Daoniao_Preparations.class);
+                intent.setClass(TipsActivity.this,MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 tvShow.setText("大侠，你没有通过本次的挑战，希望你再接再厉,点击下一步重新开始");
             }
         }

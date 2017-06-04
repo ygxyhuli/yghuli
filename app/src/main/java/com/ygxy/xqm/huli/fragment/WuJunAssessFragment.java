@@ -51,11 +51,20 @@ public class WuJunAssessFragment extends Fragment{
         mBtnFinish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), PracticeItemActivity.class);
-                intent.putExtra("toHigherPractice",2);     /**回到排序页面，下一个中级场练习部分**/
-                startActivity(intent);
+                Button ref=(Button) getActivity().findViewById(R.id.assess_reference);
+                ref.setVisibility(View.VISIBLE);
+                Button next=(Button)getActivity().findViewById(R.id.assess_next);
+                next.setVisibility(View.VISIBLE);
+                next.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getActivity(), PracticeItemActivity.class);
+                        intent.putExtra("toHigherPractice",2);     /**回到排序页面，下一个中级场练习部分**/
+                        startActivity(intent);
+                    }
+                });
+
                 dialog.dismiss();
-                getActivity().finish();
             }
         });
         mBtnCancel.setOnClickListener(new View.OnClickListener() {
