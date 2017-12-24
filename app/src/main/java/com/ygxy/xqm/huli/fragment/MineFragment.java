@@ -38,7 +38,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.kymjs.kjframe.Core;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -182,6 +184,23 @@ public class MineFragment extends Fragment{
                 () {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+
+                /**
+                 * 清理进度
+                 */
+                try{
+                    File file=new File(getActivity().getFilesDir().getPath()+"/progress.txt");
+                    if(!file.exists()){
+                        file.createNewFile();
+                    }
+                    FileWriter fileWriter=new FileWriter(file);
+                    BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
+                    bufferedWriter.write("1,1");
+                    bufferedWriter.close();
+                    fileWriter.close();
+                }
+                catch (Exception e){Toast.makeText(getActivity(),e.getMessage(),Toast.LENGTH_LONG).show();}
+
                 clearAppCache();
                 mTvClear.setText("0KB");
             }

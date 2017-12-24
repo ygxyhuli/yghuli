@@ -63,6 +63,7 @@
                     android:id="@+id/feedback_upload_photos"
                     android:textSize="16sp"
                     android:text="上传图片"
+                    android:visibility="gone"
                     android:textColor="@color/white"
                     android:layout_margin="10dp"
                     android:layout_alignParentRight="true"

@@ -47,8 +47,9 @@
 
                     <ImageView
                         android:id="@+id/practice_image"
-                        android:layout_width="match_parent"
-                        android:src="@mipmap/icon_logo"
+                        android:layout_width="140dp"
+                        android:src="@drawable/wujun_tao_r9"
+                        android:layout_margin="5dp"
                         android:layout_height="100dp" />
                     <TextView
                         android:id="@+id/practice_level"
@@ -96,9 +97,11 @@
 
                 <ImageView
                     android:id="@+id/practice_daoniao_image0"
-                    android:layout_width="match_parent"
+                    android:layout_width="140dp"
                     android:layout_height="100dp"
-                    android:src="@mipmap/icon_logo" />
+                    android:scaleType="fitXY"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/daoniao" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -110,8 +113,24 @@
             </LinearLayout>
 
 
-        </LinearLayout>
 
+        </LinearLayout>
+        <ImageView
+            android:layout_gravity="center"
+            android:id="@+id/practice_demo"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@mipmap/icon_logo"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:layout_gravity="center"
+            android:id="@+id/practice_high_demo"
+            android:layout_width="match_parent"
+            android:layout_marginTop="12dp"
+            android:layout_height="100dp"
+            android:src="@mipmap/icon_logo"
+            android:visibility="gone"/>
     </LinearLayout>
 
 </ScrollView>

@@ -38,6 +38,7 @@
         android:drawablePadding="5dp"
         android:hint="@string/hit_id"
         android:maxLength="10"
+        android:textSize="14sp"
         android:padding="10dp"
         android:layout_gravity="center_horizontal"/>
     <com.ygxy.xqm.huli.myview.DIYEditTextAccount
@@ -48,6 +49,7 @@
         android:inputType="text"
         android:layout_marginTop="20dp"
         android:drawablePadding="5dp"
+        android:textSize="14sp"
         android:hint="@string/hit_nickname"
         android:padding="10dp"
         android:maxLength="11"
@@ -58,6 +60,7 @@
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:background="@null"
+        android:textSize="14sp"
         android:inputType="phone"
         android:layout_marginTop="20dp"
         android:drawablePadding="5dp"
@@ -69,6 +72,7 @@
         android:id="@+id/registered_password"
         android:layout_width="300dp"
         android:layout_height="40dp"
+        android:textSize="14sp"
         android:background="@null"
         android:layout_marginTop="20dp"
         android:drawablePadding="5dp"
@@ -81,6 +85,7 @@
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:background="@null"
+        android:textSize="14sp"
         android:layout_marginTop="20dp"
         android:drawablePadding="5dp"
         android:inputType="textPassword"
@@ -98,6 +103,7 @@
             android:layout_height="match_parent"
             android:inputType="number"
             android:gravity="center"
+            android:textSize="14sp"
             android:background="@drawable/edittext_background"
             android:hint="@string/hit_identifying_code" />
         <Button

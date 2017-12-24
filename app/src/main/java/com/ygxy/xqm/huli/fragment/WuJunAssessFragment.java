@@ -102,8 +102,9 @@ public class WuJunAssessFragment extends Fragment{
     @OnClick(R.id.assess_reference)void assess_reference(){
         assess_ll.setVisibility(View.VISIBLE);
         assess_rl.setVisibility(View.GONE);
-        mTvcontent.setText("评估参考内容是：\n"+"无菌技术该如何评估，这是一个很严肃的问题，需要非常" +
-                "谨慎");
+        mTvcontent.setText("评估参考内容是：\n"+"        XX您好！我是您的管床护士XX，请问您叫什么名字啊？我可以看看您的手腕带吗？XX我看看你的伤口好吗？您的伤口XXX，根据医嘱今天要给您换个药。您有对什么药物/消毒液过敏吗？\n" +
+                "        换药需要一点时间，请问您需要先上个洗手间吗？\n" +
+                "        病房光线充足，无人打扫等，（有床帘/屏风），适宜操作。");
     }
     @OnClick(R.id.assess_close)void assess_close(){
         assess_ll.setVisibility(View.GONE);

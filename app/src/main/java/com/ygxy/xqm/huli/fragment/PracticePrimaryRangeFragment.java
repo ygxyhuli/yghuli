@@ -456,6 +456,7 @@ public class PracticePrimaryRangeFragment extends BackHandledFragment {
             Intent intent=new Intent();
             intent.putExtra("from","PracticePrimaryRangeFragment");
             intent.putExtra("toHigherPractice",i);      /**回到排序页面，下一个中级场练习部分**/
+            intent.putExtra("failedNum",getActivity().getIntent().getIntExtra("failedNum",0));
             intent.setClass(getActivity(),TipsActivity.class);
             startActivity(intent);
         }

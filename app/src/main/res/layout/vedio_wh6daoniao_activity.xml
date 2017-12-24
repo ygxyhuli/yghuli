@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:textSize="15sp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginLeft="12dp"
+                android:text="大侠，开始找错吧：" />
+
+            <fm.jiecao.jcvideoplayer_lib.JCVideoPlayer
+                android:id="@+id/videocontroller3"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+
+            <LinearLayout
+                android:id="@+id/answerArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="12dp"
+                    android:text="选择题：" />
+
+                <TextView
+                    android:id="@+id/tv_error_a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:textSize="16sp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:text="A. 尿管插入后未立即消毒手" />
+
+                <TextView
+                    android:id="@+id/tv_error_b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:text="B. 将尿袋从孔巾穿出时，未先关闭尿袋开关" />
+
+                <TextView
+                    android:id="@+id/tv_error_c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:text="C. 未贴尿管表示、未写尿袋有效期等" />
+
+                <TextView
+                    android:id="@+id/tv_error_d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:text="D. 撤离导尿用物时，操作者硬拉患者臀下的垫巾" />
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@id/tv_expland"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginTop="18dp"
+                    android:text="查看解析"
+                    android:textColor="@color/blue_6db"
+                    android:textSize="15sp"
+                    android:visibility="invisible" />
+            </RelativeLayout>
+
+
+            <Button
+                android:id="@+id/vedio_submit"
+                android:background="@drawable/shape_submit"
+                android:textSize="15sp"
+                android:text="下一题"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/white"
+                android:clickable="true"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="36dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

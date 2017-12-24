@@ -9,19 +9,14 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <ImageView
-            android:layout_margin="20dp"
-            android:src="@drawable/icon_chuji_mind"
+            android:id="@+id/imageView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView2" />
-        <TextView
-            android:id="@+id/practice_mind_start"
-            android:text="@string/tv_mind_start"
-            android:textSize="20sp"
-            android:layout_centerInParent="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_margin="20dp"
+            android:src="@drawable/wujun_mindmap" />
+
         <Button
             android:id="@+id/practice_mind_next"
             android:background="@drawable/login_btn_style"

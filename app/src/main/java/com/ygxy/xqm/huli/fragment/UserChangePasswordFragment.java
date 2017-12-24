@@ -199,7 +199,7 @@ public class UserChangePasswordFragment extends Fragment{
             return false;
         }
         else if (mEtAdmitPassword.getText().toString().equals(mEtNewPassword.getText().toString()) == false){
-            Toast.makeText(getActivity(),"请输入正确的密码",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(),"两次输入新密码不相同",Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;

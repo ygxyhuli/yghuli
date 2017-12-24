@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -31,7 +32,14 @@ import com.ygxy.xqm.huli.util.OkHttpPostUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -72,6 +80,8 @@ public class Pharmaceutical_Preparations extends AppCompatActivity implements Ab
 
     private int record[]=new int[13];       //记录选择
 
+    private String path;
+
     //    final String addGoldCount = "0";
     public static final String ADD_URL = "http://139.199.220.49:8080/gold/add/";//增加金币
     @OnClick(R.id.prepare_submit)void prepare_submit(){
@@ -89,10 +99,36 @@ public class Pharmaceutical_Preparations extends AppCompatActivity implements Ab
             }
         }
         addGold("1");
+
+        try{
+            File file=new File(getFilesDir().getPath()+"/progress.txt");
+            if(!file.exists()){
+                file.createNewFile();
+                FileWriter fileWriter=new FileWriter(file);
+                BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
+                bufferedWriter.write("1,1");
+                bufferedWriter.close();
+                fileWriter.close();
+            }
+            FileReader fileReader=new FileReader(file);
+            BufferedReader reader=new BufferedReader(fileReader);
+            String[] p=reader.readLine().split(",");
+            reader.close();
+            fileReader.close();
+            //Toast.makeText(this,p[0]+p[1],Toast.LENGTH_SHORT).show();
+            FileWriter fileWriter=new FileWriter(file);
+            BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
+            bufferedWriter.write(2+","+p[1]);
+            bufferedWriter.close();
+            fileWriter.close();
+        }
+        catch (Exception e){Toast.makeText(this,e.getMessage(),Toast.LENGTH_SHORT).show();}
+
         Intent intent=new Intent();
         intent.putExtra("from","Pharmaceutical_Preparations");
         intent.putExtra("pass",1);
         intent.setClass(this, TipsActivity.class);
+        intent.putExtra("toHigherPractice",3);
         startActivity(intent);
         ((Button)findViewById(R.id.prepare_submit)).setVisibility(View.INVISIBLE);
 
@@ -176,6 +212,8 @@ public class Pharmaceutical_Preparations extends AppCompatActivity implements Ab
         mGridAdapter = new GridAdapter(this);
         mGridView.setAdapter(mGridAdapter);
         mGridView.setMultiChoiceModeListener(this);
+
+        path= getFilesDir().getPath()+"/progress.txt";
 
         for(int i=0;i<13;i++){
             record[i]=0;

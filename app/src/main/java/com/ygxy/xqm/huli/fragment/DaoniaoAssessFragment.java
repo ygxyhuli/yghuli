@@ -101,8 +101,9 @@ public class DaoniaoAssessFragment extends Fragment{
     @OnClick(R.id.assess_reference)void assess_reference(){
         assess_ll.setVisibility(View.VISIBLE);
         assess_rl.setVisibility(View.GONE);
-        mTvcontent.setText("评估参考内容是：\n"+"导尿技术该如何评估，这是一个很严肃的问题，需要非常" +
-                "谨慎");
+        mTvcontent.setText("评估参考内容是：\n"+"        XX您好！我是您的管床护士XX，请问您叫什么名字啊？我可以看看您的手腕带吗？ XX您现在小便情况怎么样啊？（按压腹部/叩诊）因为XXX，根据医嘱要给您插根尿管到膀胱内，帮您排出尿液，减缓您腹胀腹痛的情况，可以吗？现在我想看看您的会阴部皮肤，可以吗？（保护隐私）\n" +
+                "        请问您有对什么消毒液过敏吗？插尿管需要一段时间，请问您需要大便吗？\n" +
+                "        病房光线充足，无人打扫等，（有床帘/屏风），适宜操作。");
     }
     @OnClick(R.id.assess_close)void assess_close(){
         assess_ll.setVisibility(View.GONE);

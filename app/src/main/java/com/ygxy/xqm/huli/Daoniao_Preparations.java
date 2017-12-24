@@ -30,6 +30,11 @@ import com.ygxy.xqm.huli.util.OkHttpPostUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -116,6 +121,31 @@ public class Daoniao_Preparations extends AppCompatActivity implements AbsListVi
             }
         }
         addGold("1");
+
+        try{
+            File file=new File(getFilesDir().getPath()+"/progress.txt");
+            if(!file.exists()){
+                file.createNewFile();
+                FileWriter fileWriter=new FileWriter(file);
+                BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
+                bufferedWriter.write("1,1");
+                bufferedWriter.close();
+                fileWriter.close();
+            }
+            FileReader fileReader=new FileReader(file);
+            BufferedReader reader=new BufferedReader(fileReader);
+            String[] p=reader.readLine().split(",");
+            reader.close();
+            fileReader.close();
+            //Toast.makeText(this,p[0]+p[1],Toast.LENGTH_SHORT).show();
+            FileWriter fileWriter=new FileWriter(file);
+            BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
+            bufferedWriter.write(p[0]+","+2);
+            bufferedWriter.close();
+            fileWriter.close();
+        }
+        catch (Exception e){Toast.makeText(this,e.getMessage(),Toast.LENGTH_SHORT).show();}
+
         Intent intent=new Intent();
         intent.putExtra("from","Daoniao_Preparations");
         intent.putExtra("pass",1);

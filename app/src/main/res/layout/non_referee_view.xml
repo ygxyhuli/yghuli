@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="#1296db">
+    android:background="#cbe7db">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -14,8 +14,8 @@
             android:id="@+id/non_referee_hit"
             android:text="不好意思你不是该次PK的评委不能录入分数"
             android:textSize="15sp"
-            android:textColor="#ffffff"
             android:layout_width="wrap_content"
+            android:textColor="#000"
             android:layout_height="40dp" />
         <Button
             android:id="@+id/non_referee"

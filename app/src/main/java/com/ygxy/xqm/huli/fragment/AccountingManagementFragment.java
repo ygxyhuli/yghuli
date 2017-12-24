@@ -16,6 +16,8 @@ import android.widget.TextView;
 import com.ygxy.xqm.huli.ChangPasswordActivity;
 import com.ygxy.xqm.huli.R;
 import com.ygxy.xqm.huli.UserLoginActivity;
+import com.ygxy.xqm.huli.util.AppConfig;
+import com.ygxy.xqm.huli.util.DataCleanManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,6 +50,8 @@ public class AccountingManagementFragment extends Fragment {
                 editor.apply();
                 Boolean status = preferences.getBoolean("login_status",false);
                 Intent intent = new Intent(getActivity(), UserLoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+//                DataCleanManager.cleanApplicationData(AppConfig.getAppConfig(getContext()));
                 startActivity(intent);
                 getActivity().finish();
             }

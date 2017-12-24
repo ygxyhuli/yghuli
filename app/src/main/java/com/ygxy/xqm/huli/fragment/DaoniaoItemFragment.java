@@ -24,7 +24,7 @@ public class DaoniaoItemFragment extends BackHandledFragment {
     Button mPractice_mind_out;
     @BindView(R.id.practice_mind_next)
     Button mPractice_mind_next;
-    @BindView(R.id.practice_mind_start)TextView textView;
+    //@BindView(R.id.practice_mind_start)TextView textView;
     private DaoniaoPrimaryRangeFragment primaryRangeFragment;
 
     @OnClick(R.id.practice_mind_out) void practice_mind_out(){
@@ -38,7 +38,7 @@ public class DaoniaoItemFragment extends BackHandledFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.practice_mind_map,container,false);
+        View view = inflater.inflate(R.layout.practice_mind_map_daoniao,container,false);
         ButterKnife.bind(this,view);
         return view;
     }
@@ -47,7 +47,7 @@ public class DaoniaoItemFragment extends BackHandledFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         primaryRangeFragment = new DaoniaoPrimaryRangeFragment();
-        textView.setText("导尿技术知识思维导图");
+        //textView.setText("导尿技术知识思维导图");
     }
 
 

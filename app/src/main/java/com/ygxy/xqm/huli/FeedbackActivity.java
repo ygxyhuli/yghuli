@@ -64,7 +64,7 @@ public class FeedbackActivity extends AppCompatActivity {
     private Bitmap photo;//头像
     private String token = null;
     private String qiniuToken = "";
-    private Boolean flag = true;
+    private Boolean flag = false;
     private CustomDialog customDialog;
     // 图片名
     public String name;
@@ -76,9 +76,9 @@ public class FeedbackActivity extends AppCompatActivity {
         showTypeDialog();
     }
     //上传照片
-    @OnClick(R.id.feedback_upload_photos)void feedback_upload_photos(){
-        loadImageToQiNiu();
-    }
+//    @OnClick(R.id.feedback_upload_photos)void feedback_upload_photos(){
+//        loadImageToQiNiu();
+//    }
     //写入数据库
     @OnClick(R.id.feedback_submit)void feedback_submit(){
         postToBackground();
@@ -113,33 +113,38 @@ public class FeedbackActivity extends AppCompatActivity {
                             if(info.isOK())
                             {
                                 Log.i("qiniu", "Upload Success");
-                                flag = true;
+//                                flag = true;
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
+                                        flag = true;
                                         closeDialog();
                                     }
                                 });
                             }
                             else{
                                 Log.i("qiniu", "Upload Fail");
+//                                loadImageToQiNiu();
                                 //如果失败，这里可以把info信息上报自己的服务器，便于后面分析上传错误原因
-                                flag = false;
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
+                                        flag = false;
                                         closeDialog();
+                                        Toast.makeText(FeedbackActivity.this,"上传图片失败",Toast.LENGTH_SHORT).show();
                                     }
                                 });
                             }
-//                            Log.i("qiniu", key + ",\r\n " + info + ",\r\n " + response);
                         }
                     },null);
-                }else {
+                }
+                else {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+                            flag = false;
                             closeDialog();
+                            Toast.makeText(FeedbackActivity.this,"上传图片失败",Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
@@ -178,8 +183,7 @@ public class FeedbackActivity extends AppCompatActivity {
      * 将反馈信息写入数据库
      */
     private void postToBackground() {
-        if (loadImageToQiNiu() == true){
-            showDialog();
+        if (flag){
             token = loginActivity.returnToken(preferences);
             String content = mTvPublish.getText().toString();
             if (!TextUtils.isEmpty(content)){
@@ -192,7 +196,6 @@ public class FeedbackActivity extends AppCompatActivity {
                                     @Override
                                     public void run() {
                                         Toast.makeText(FeedbackActivity.this,"访问服务器出现异常",Toast.LENGTH_SHORT).show();
-                                        closeDialog();
                                     }
                                 });
                             }
@@ -209,7 +212,6 @@ public class FeedbackActivity extends AppCompatActivity {
                                         public void run() {
                                             if (suggestion_message != null ){
                                                 Toast.makeText(FeedbackActivity.this,"提交成功",Toast.LENGTH_SHORT).show();
-                                                closeDialog();
                                                 finish();
                                             }
                                         }
@@ -221,8 +223,10 @@ public class FeedbackActivity extends AppCompatActivity {
                         });
             }else {
                 Toast.makeText(FeedbackActivity.this,"请输入内容",Toast.LENGTH_SHORT).show();
-                closeDialog();
+//                closeDialog();
             }
+        }else {
+            Toast.makeText(FeedbackActivity.this,"请重新上传图片",Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -355,6 +359,7 @@ public class FeedbackActivity extends AppCompatActivity {
                                 .valueOf(System.currentTimeMillis()));
 //                        String path = OkHttpPostUtil.loadImageJson(imagePath);
                         Glide.with(this).load(imagePath).into(mImgAdd);
+                        loadImageToQiNiu();
                     }
                 }
                 break;

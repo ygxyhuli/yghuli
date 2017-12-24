@@ -33,7 +33,7 @@
             android:layout_below="@+id/assess_reference"
             android:layout_gravity="center"
             android:layout_marginTop="13dp"
-            android:background="@mipmap/icon_start_assess"
+            android:background="@mipmap/icon_pk4_button"
             android:drawableBottom="@null"
             android:shadowRadius="@null"
             android:text="下一步"
@@ -51,7 +51,7 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginTop="75dp"
-            android:background="@mipmap/icon_start_assess"
+            android:background="@mipmap/icon_pk4_button"
             android:drawableBottom="@null"
             android:shadowRadius="@null"
             android:text="开始评估"
@@ -68,7 +68,7 @@
             android:layout_below="@+id/start_assess"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
-            android:background="@mipmap/icon_start_assess"
+            android:background="@mipmap/icon_pk4_button"
             android:drawableBottom="@null"
             android:shadowRadius="@null"
             android:text="评估参考"
@@ -90,7 +90,8 @@
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:text="评估参考内容是："
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:background="@color/white"/>
 
         <Button
             android:id="@+id/assess_close"

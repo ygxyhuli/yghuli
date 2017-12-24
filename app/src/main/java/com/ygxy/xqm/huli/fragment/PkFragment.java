@@ -3,6 +3,7 @@ package com.ygxy.xqm.huli.fragment;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
@@ -104,9 +105,45 @@ public class PkFragment extends Fragment {
                     String pk_back_id = bundle1.getString("resultId");//返回pk对象的id
                     Log.d("backId",pk_back_id);
                     if (pk_back_id.equals("0")){
-                        Toast.makeText(getActivity(),"拒绝请求",Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getActivity(),"拒绝请求",Toast.LENGTH_SHORT).show();
+                        builder.setIcon(R.mipmap.ic_launcher);
+                        builder.setTitle("提示");
+                        View view = LayoutInflater.from(getActivity()).inflate(R.layout.non_referee_view,null);
+                        @SuppressLint("WrongViewCast")
+                        Button mBtn_nonreferee = (Button) view.findViewById(R.id.non_referee);
+                        TextView textView=(TextView)view.findViewById(R.id.non_referee_hit);
+                        textView.setText("您已经发起过PK匹配申请，请等待对手处理。对手处理后，对手跟评委的信息会发送给你");
+                        mBtn_nonreferee.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                dialog.dismiss();
+                            }
+                        });
+                        builder.setView(view);
+                        builder.setCancelable(false);
+                        builder.setIcon(R.drawable.a);
+                        dialog = builder.create();
+                        dialog.show();
                     }else {
-                        Toast.makeText(getActivity(),"匹配的对手学号是："+pk_back_id+","+"正在等待对方处理",Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getActivity(),"匹配的对手学号是："+pk_back_id+","+"正在等待对方处理",Toast.LENGTH_SHORT).show();
+                        builder.setIcon(R.mipmap.ic_launcher);
+                        builder.setTitle("提示");
+                        View view = LayoutInflater.from(getActivity()).inflate(R.layout.non_referee_view,null);
+                        @SuppressLint("WrongViewCast")
+                        Button mBtn_nonreferee = (Button) view.findViewById(R.id.non_referee);
+                        TextView textView=(TextView)view.findViewById(R.id.non_referee_hit);
+                        textView.setText("匹配的对手学号是："+pk_back_id+","+"正在等待对方处理");
+                        mBtn_nonreferee.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                dialog.dismiss();
+                            }
+                        });
+                        builder.setView(view);
+                        builder.setCancelable(false);
+                        builder.setIcon(null);
+                        dialog = builder.create();
+                        dialog.show();
                     }
                     break;
                 case PK_REFEREE://评委录入分数
@@ -143,7 +180,7 @@ public class PkFragment extends Fragment {
 //                    Log.d("接到",role);
 //                    Intent intent = new Intent(getActivity(), NotificationService.class);
 //                    getActivity().startService(intent);
-//                    getActivity().bindService(intent,connection,BIND_AUTO_CREATE);//绑定服务
+//                    getActivity().bindService(intent,connection, Context.BIND_AUTO_CREATE);//绑定服务
 //                    notificationBinder.showNotification("haoaho");
                     break;
             }
@@ -405,6 +442,7 @@ public class PkFragment extends Fragment {
         });
         builder.setView(view);
         builder.setCancelable(false);
+        builder.setIcon(R.drawable.a);
         dialog = builder.create();
         dialog.show();
     }
